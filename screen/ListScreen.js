@@ -29,12 +29,13 @@ const ListScreen = () => {
 
         const deleteStudent = () => {
                 // const decrement = firebase.firestore.FieldValue.increment(-parseFloat(quantity));
-                if (food != '') {
-                        db.collection("students").doc(name).set({
+                if (name != '') {
+                        db.collection("students").doc(name).delete({
                                 student: name
                         }, { merge: true }).then(() => {
                                 console.log("Student deleted:", name);
                                 setName('');
+                                setEmail('');
                         })
                 } else {
                         alert("Please enter valid inputs")
